@@ -1,0 +1,50 @@
+TagGUI:
+  Size: 54
+  ### Names are only enabled in 1.8 ###
+  Name: '&b%player_name%''s Tags'
+  TagItem:
+    Material: 'NAME_TAG'
+    Name: '{TAGNAME} &bTag'
+    Lore:
+      - '&bClick to apply this tag!'
+      - '{PlayerDisplayName} {ParsedTag}'
+    ### Glow will make the tag currently applied glow ###
+    Glow: true
+Defaults:
+### Players will be given this tag when their custom object is first made ###
+### This needs to be the name of a Tag in the Tags section or a filler tag will be generated ###
+  Tag: 'Level'
+  ### These Tags will be automatically awarded to new players ###
+  Tags:
+    - 'Level'
+  ### If you put a Tag name here and in Tags above they will persist through /Core SeasonClean ###
+  ### So if you want to do 'veteran tags' ex. 'Season One', 'Season Two', etc. this is the route to take ###
+  PersistTags:
+    - 'SeasonOne'
+    - 'Balance'
+Tags:
+  ### Tags support PlaceholderAPI ###
+  Balance: '&8[&a%vault_eco_balance_commas%&8]'
+  OrbitalMaster: '&8[&6★&b&lOrb&r&6★&8]'
+  ### Use {} for placeholders the core will resolve ###
+  Level: '&8[&b{BattlePassLevel}&8]'
+  None: ''
+  SeasonOne: '&0[&b&lS&61&r&0]'
+Economy:
+  SeasonOne:
+    Base: 50000.0
+    Multiplier: 3.5
+    Cap: 15
+EconomySettings:
+  RarityFormat:
+    Common: '&8'
+    Uncommon: '&8&l'
+    Rare: '&d'
+    Epic: '&d&l'
+    Legendary: '&6&l&o'
+Messages:
+  OnlyPlayers: 'You must be a player to do this!'
+  TagAdminNoPerm: '&bTry /tag'
+  TagReceived: '&bYou have received the {TAGNAME} Tag!'
+  TagReceivedTransfer: '&bYou have received the {TAGNAME} Tag from {PLAYER}'
+  TagGiven: '&bYou have transferred your {TAGNAME} Tag to {PLAYER}'
