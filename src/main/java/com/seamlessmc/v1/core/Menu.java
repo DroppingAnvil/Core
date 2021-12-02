@@ -1,4 +1,4 @@
-package io.github.droppinganvil;
+package com.seamlessmc.v1.core;
 
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.InventoryHolder;

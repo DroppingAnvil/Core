@@ -1,4 +1,4 @@
-package io.github.droppinganvil;
+package com.seamlessmc.v1.core;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
@@ -44,25 +44,26 @@ public class Util {
         a.addTag(t);
     }
     public void awardTag(APlayer a, Tag tag, Boolean persist) {
-        ValuedObject ta = Core.getInstance().lookupValue(tag.getName());
+        ValuedObject ta = SpigotHook.getInstance().lookupValue(tag.getName());
         if (ta != null) {
-            if (ta.getInCirc() >= ta.getCap()) {Core.getInstance().getLogger().log(Level.INFO, "Tag give rejected as the ValuedObject is capped!");return;}
+            if (ta.getInCirc() >= ta.getCap()) {
+                SpigotHook.getInstance().getLogger().log(Level.INFO, "Tag give rejected as the ValuedObject is capped!");return;}
             ta.add();
         }
         if (persist) {a.addPersistTag(tag); sendTagReceived(a, tag);} else {a.addTag(tag); sendTagReceived(a, tag);}
     }
     public void sendOnlyPlayers(CommandSender s) {
-        s.sendMessage(Core.getInstance().getConfig().getString("Messages.PlayersOnly", "You must be a player to do this!"));
+        s.sendMessage(SpigotHook.getInstance().getConfig().getString("Messages.PlayersOnly", "You must be a player to do this!"));
     }
     public void sendTagAdminNoPerms(APlayer a) {
-        a.getOfflinePlayer().getPlayer().sendMessage(parseString(Core.getInstance().getConfig().getString("Messages.TagAdminNoPerms", "&bTry /tag"), a));
+        a.getOfflinePlayer().getPlayer().sendMessage(parseString(SpigotHook.getInstance().getConfig().getString("Messages.TagAdminNoPerms", "&bTry /tag"), a));
     }
     public void sendTagTransfer(APlayer a, APlayer b, Tag t) {
     }
     @Deprecated
     public void sendTagReceived(APlayer a, Tag t) {
         Player p = a.getOfflinePlayer().getPlayer();
-        p.sendMessage(parseString(Core.getInstance().getConfig().getString("Messages.TagReceived").replace("{TAGNAME}", t.getName()), a));
+        p.sendMessage(parseString(SpigotHook.getInstance().getConfig().getString("Messages.TagReceived").replace("{TAGNAME}", t.getName()), a));
         p.getWorld().playSound(p.getLocation(), Sound.LEVEL_UP, 1f, 1f);
     }
 }

@@ -1,6 +1,4 @@
-package io.github.droppinganvil;
-
-import io.github.droppinganvil.APlayer;
+package com.seamlessmc.v1.core;
 
 public class Tag {
     private String ta;

@@ -1,4 +1,4 @@
-package io.github.droppinganvil;
+package com.seamlessmc.v1.core;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -9,7 +9,7 @@ public class Listener implements org.bukkit.event.Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         OfflinePlayer op = Bukkit.getOfflinePlayer(e.getPlayer().getUniqueId());
-        if (Core.getInstance().aPlayers.keySet().contains(op)) {return;}
-        Core.getInstance().aPlayers.put(op, new APlayer(op, !e.getPlayer().hasPlayedBefore()));
+        if (SpigotHook.getInstance().aPlayers.keySet().contains(op)) {return;}
+        SpigotHook.getInstance().aPlayers.put(op, new APlayer(op, !e.getPlayer().hasPlayedBefore()));
     }
 }

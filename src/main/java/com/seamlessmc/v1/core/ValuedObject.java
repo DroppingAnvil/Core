@@ -1,7 +1,6 @@
-package io.github.droppinganvil;
+package com.seamlessmc.v1.core;
 
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
 
 public class ValuedObject {
     private String name;
@@ -56,13 +55,13 @@ public class ValuedObject {
     public double getValue() {return current;}
     public Rarity getRarity() {return r;}
     public String getRarityColored() {
-        return Core.getInstance().cMap.get(r) + r.name() + ChatColor.RESET;
+        return SpigotHook.getInstance().cMap.get(r) + r.name() + ChatColor.RESET;
     }
     public String getRarityExactColored() {
-        return Core.getInstance().cMap.get(r) + pInCirc + ChatColor.RESET;
+        return SpigotHook.getInstance().cMap.get(r) + pInCirc + ChatColor.RESET;
     }
     public String getInCircColored() {
-        return Core.getInstance().cMap.get(r) + incirc + ChatColor.RESET;
+        return SpigotHook.getInstance().cMap.get(r) + incirc + ChatColor.RESET;
     }
     public String getCapColored() {return ChatColor.AQUA + String.valueOf(cap) + ChatColor.RESET;}
     public Integer getInCirc() {return this.incirc;}
@@ -73,6 +72,6 @@ public class ValuedObject {
     public void remove() {incirc--;}
     public String getName() {return name;}
     public void save() {
-        Core.getInstance().data.set(name, incirc);
+        SpigotHook.getInstance().data.set(name, incirc);
     }
 }

@@ -1,4 +1,4 @@
-package io.github.droppinganvil;
+package com.seamlessmc.v1.core;
 
 public enum ChangeTypes {
     Up,

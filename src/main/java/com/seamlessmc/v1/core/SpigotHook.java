@@ -1,4 +1,4 @@
-package io.github.droppinganvil;
+package com.seamlessmc.v1.core;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
 
-public class Core extends JavaPlugin {
-    public static Core instance;
-    public Core() {instance = this;}
-    public static Core getInstance() {return instance;}
+public class SpigotHook extends JavaPlugin {
+    public static SpigotHook instance;
+    public SpigotHook() {instance = this;}
+    public static SpigotHook getInstance() {return instance;}
     public HashMap<OfflinePlayer, APlayer> aPlayers = new HashMap<OfflinePlayer, APlayer>();
     public HashMap<String, Tag> tags = new HashMap<String, Tag>();
     public Integer v = 13;

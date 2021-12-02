@@ -1,4 +1,4 @@
-name: AnvilCore
+name: SeamlessCore
 author: DroppingAnvil
-main: io.github.droppinganvil.Core
+main: com.seamlessmc.v1.core.Main
 version: 1.0
