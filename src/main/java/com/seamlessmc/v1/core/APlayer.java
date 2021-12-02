@@ -11,9 +11,10 @@ import java.util.List;
 public class APlayer {
     //TODO NEEDS recode, use CoreV2 DB feature
     private OfflinePlayer player;
+    private double power = 0.0;
     private List<String> tags;
     private Tag active;
-    private int level;
+    private int level = 0;
     private FileConfiguration conf;
     public APlayer(OfflinePlayer p, Boolean first) {
         player = p;

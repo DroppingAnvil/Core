@@ -1,5 +1,6 @@
 package com.seamlessmc.v1.core;
 
+import com.seamlessmc.v1.core.econ.ValuedObject;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;

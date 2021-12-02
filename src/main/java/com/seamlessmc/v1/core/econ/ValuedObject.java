@@ -1,9 +1,13 @@
-package com.seamlessmc.v1.core;
+package com.seamlessmc.v1.core.econ;
 
+import com.seamlessmc.v1.core.SpigotHook;
 import org.bukkit.ChatColor;
+
+import java.util.UUID;
 
 public class ValuedObject {
     private String name;
+    public String objectID = "Not Set";
     private double multiplier;
     private double base;
     private int cap;
@@ -23,6 +27,9 @@ public class ValuedObject {
         recalc();
     }
     public void recalc() {
+        if (objectID.equalsIgnoreCase("Not Set")) {
+            objectID = UUID.randomUUID().toString();
+        }
         calcRarity();
         switch (r) {
             case Common:

@@ -1,5 +1,7 @@
 package com.seamlessmc.v1.core;
 
+import com.seamlessmc.v1.core.econ.Rarity;
+import com.seamlessmc.v1.core.econ.ValuedObject;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

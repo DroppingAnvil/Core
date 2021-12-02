@@ -1,4 +1,4 @@
-package com.seamlessmc.v1.core;
+package com.seamlessmc.v1.core.econ;
 
 public enum Rarity {
     Common(),
