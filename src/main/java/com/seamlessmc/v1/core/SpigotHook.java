@@ -1,6 +1,7 @@
 package com.seamlessmc.v1.core;
 
 import com.seamlessmc.v1.core.econ.Rarity;
+import com.seamlessmc.v1.core.econ.SeamlessEco;
 import com.seamlessmc.v1.core.econ.ValuedObject;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -23,9 +24,8 @@ public class SpigotHook extends JavaPlugin {
     public HashMap<String, Tag> tags = new HashMap<String, Tag>();
     public Integer v = 13;
     public Tag def;
+    public SeamlessEco primaryEco;
     public FileConfiguration data;
-    public HashMap<String, ValuedObject> values = new HashMap<String, ValuedObject>();
-    public HashMap<Rarity, String> cMap = new HashMap<Rarity, String>();
 
     public FileConfiguration getUserData(OfflinePlayer op) {
         File f = new File(getDataFolder(),op.getUniqueId() + ".yml");

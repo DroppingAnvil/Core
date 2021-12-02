@@ -14,7 +14,12 @@ public class SeamlessEco implements Runnable {
 
     public void run() {
         for (ValuedObject vo : econObjects.values()) {
-            vo.recalc();
+            vo.recalc(this);
+        }
+        try {
+            Thread.sleep(1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
