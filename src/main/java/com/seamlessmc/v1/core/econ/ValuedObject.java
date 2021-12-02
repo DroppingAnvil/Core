@@ -12,36 +12,36 @@ public class ValuedObject {
     private double base;
     private int cap;
     private int incirc;
+    private double consumerFactor;
     private Rarity r;
     private int pInCirc;
     private ChangeTypes state;
     private double current;
-    private String chatcar;
     public ValuedObject(String name, Double base, Double multiplier, Integer cap, Integer incirc) {
         this.name = name;
         this.base = base;
         this.multiplier = multiplier;
         this.cap = cap;
         this.incirc = incirc;
-        System.out.print(incirc);
-        recalc();
     }
-    public void recalc() {
+    public void recalc(SeamlessEco eco) {
         if (objectID.equalsIgnoreCase("Not Set")) {
             objectID = UUID.randomUUID().toString();
         }
         calcRarity();
+        double cr = ((((((double) cap - incirc)) / ((double) eco.consumers))));
+        consumerFactor = multiplier - cr;
         switch (r) {
             case Common:
                 calcStateAndSet(base); break;
             case Uncommon:
-                calcStateAndSet(base * multiplier); break;
+                calcStateAndSet(base * consumerFactor); break;
             case Rare:
-                calcStateAndSet(base * (multiplier * 2)); break;
+                calcStateAndSet(base * (consumerFactor * 2)); break;
             case Epic:
-                calcStateAndSet(base * (multiplier * 3)); break;
+                calcStateAndSet(base * (consumerFactor * 3)); break;
             case Legendary:
-                calcStateAndSet(base * (multiplier * 4)); break;
+                calcStateAndSet(base * (consumerFactor * 4)); break;
         }
     }
     public void calcStateAndSet(Double d) {
