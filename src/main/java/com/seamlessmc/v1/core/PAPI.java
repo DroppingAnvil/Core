@@ -29,7 +29,7 @@ public class PAPI extends PlaceholderExpansion {
     }
     @Override
     public String onRequest(OfflinePlayer player, String identifier) {
-        String invalid = ChatColor.RED + "Invalid AnvilAPI call";
+        String invalid = ChatColor.RED + "Invalid API call";
         if(player == null){
             return "";
         }
@@ -60,14 +60,6 @@ public class PAPI extends PlaceholderExpansion {
             if (v != null) {
                 return ChatColor.AQUA + "Official current value data for ValuedObject: " + ChatColor.BOLD + v.getName() + " " + ChatColor.RESET + ChatColor.GRAY + "Current estimated value: " + ChatColor.GREEN + " $" + v.getValue() + ChatColor.GRAY + " Current Rarity: " + v.getRarityColored() + ChatColor.GRAY + " Currently owned: " + v.getInCircColored();
             }
-        }
-        if(identifier.contains(".Recalc")) {
-            ValuedObject v = SpigotHook.getInstance().lookupValue(identifier.replace(".Recalc", ""));
-            v.recalc();
-            return ChatColor.AQUA + "Recalc called, using your UUID as authorization.";
-        }
-        if(identifier.equals("Reload")) {
-            SpigotHook.getInstance().reloadConfig();
         }
         return invalid;
     }

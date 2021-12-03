@@ -1,3 +1,8 @@
+Database:
+  ConnectionAddress: ""
+  Username: "Seamless"
+  Password: ""
+  Schema: "Dev"
 TagGUI:
   Size: 54
   ### Names are only enabled in 1.8 ###
@@ -30,18 +35,6 @@ Tags:
   Level: '&8[&b{BattlePassLevel}&8]'
   None: ''
   SeasonOne: '&0[&b&lS&61&r&0]'
-Economy:
-  SeasonOne:
-    Base: 50000.0
-    Multiplier: 3.5
-    Cap: 15
-EconomySettings:
-  RarityFormat:
-    Common: '&8'
-    Uncommon: '&8&l'
-    Rare: '&d'
-    Epic: '&d&l'
-    Legendary: '&6&l&o'
 Messages:
   OnlyPlayers: 'You must be a player to do this!'
   TagAdminNoPerm: '&bTry /tag'

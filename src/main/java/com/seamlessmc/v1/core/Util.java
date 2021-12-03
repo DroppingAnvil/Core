@@ -1,5 +1,6 @@
 package com.seamlessmc.v1.core;
 
+import com.seamlessmc.v1.core.cosmetics.Tag;
 import com.seamlessmc.v1.core.econ.ValuedObject;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
@@ -21,7 +22,7 @@ public class Util {
         return instance;
     }
     public String parseString(String s, APlayer a) {
-        String ss = ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(a.getOfflinePlayer(), s));
+        String ss = ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(a.getPlayer(), s));
         if (ss.contains("{")) {
             if (ss.contains("{BattlePassLevel}")) {ss = ss.replace("{BattlePassTier}", String.valueOf(a.getLevel()));}
         }
@@ -30,7 +31,7 @@ public class Util {
     public List<String> parseStringList(List<String> sl, APlayer a) {
         List<String> sll = new ArrayList<String>();
         for (String s : sl) {
-            String ss = ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(a.getOfflinePlayer(), s));
+            String ss = ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(a.getPlayer(), s));
             if (ss.contains("{")) {
                 if (ss.contains("{BattlePassLevel}")) {
                     ss = ss.replace("{BattlePassLevel}", String.valueOf(a.getLevel()));
@@ -57,13 +58,13 @@ public class Util {
         s.sendMessage(SpigotHook.getInstance().getConfig().getString("Messages.PlayersOnly", "You must be a player to do this!"));
     }
     public void sendTagAdminNoPerms(APlayer a) {
-        a.getOfflinePlayer().getPlayer().sendMessage(parseString(SpigotHook.getInstance().getConfig().getString("Messages.TagAdminNoPerms", "&bTry /tag"), a));
+        a.getPlayer().getPlayer().sendMessage(parseString(SpigotHook.getInstance().getConfig().getString("Messages.TagAdminNoPerms", "&bTry /tag"), a));
     }
     public void sendTagTransfer(APlayer a, APlayer b, Tag t) {
     }
     @Deprecated
     public void sendTagReceived(APlayer a, Tag t) {
-        Player p = a.getOfflinePlayer().getPlayer();
+        Player p = a.getPlayer().getPlayer();
         p.sendMessage(parseString(SpigotHook.getInstance().getConfig().getString("Messages.TagReceived").replace("{TAGNAME}", t.getName()), a));
         p.getWorld().playSound(p.getLocation(), Sound.LEVEL_UP, 1f, 1f);
     }

@@ -1,12 +1,12 @@
 package com.seamlessmc.v1.core.econ;
 
-import com.seamlessmc.v1.core.SpigotHook;
+import com.seamlessmc.v1.core.Configuration;
 import org.bukkit.ChatColor;
 
 import java.util.UUID;
 
 public class ValuedObject {
-    private String name;
+    public String name;
     public String objectID = "Not Set";
     private double multiplier;
     private double base;
@@ -29,7 +29,7 @@ public class ValuedObject {
             objectID = UUID.randomUUID().toString();
         }
         calcRarity();
-        double cr = ((((((double) cap - incirc)) / ((double) eco.consumers))));
+        double cr = ((((((double) cap - incirc)) / ((double) Configuration.consumers))));
         consumerFactor = multiplier - cr;
         switch (r) {
             case Common:
@@ -62,13 +62,23 @@ public class ValuedObject {
     public double getValue() {return current;}
     public Rarity getRarity() {return r;}
     public String getRarityColored() {
-        return SpigotHook.getInstance().cMap.get(r) + r.name() + ChatColor.RESET;
+        return getRarityColor() + r.name() + ChatColor.RESET;
     }
     public String getRarityExactColored() {
-        return SpigotHook.getInstance().cMap.get(r) + pInCirc + ChatColor.RESET;
+        return  getRarityColor() + pInCirc + ChatColor.RESET;
     }
     public String getInCircColored() {
-        return SpigotHook.getInstance().cMap.get(r) + incirc + ChatColor.RESET;
+        return getRarityColor() + incirc + ChatColor.RESET;
+    }
+    public String getRarityColor() {
+        switch (r) {
+            case Uncommon: return Configuration.uncommonPrefix;
+            case Common: return Configuration.commonPrefix;
+            case Rare: return Configuration.rarePrefix;
+            case Epic: return Configuration.epicPrefix;
+            case Legendary: return Configuration.legendaryPrefix;
+        }
+        return "";
     }
     public String getCapColored() {return ChatColor.AQUA + String.valueOf(cap) + ChatColor.RESET;}
     public Integer getInCirc() {return this.incirc;}
@@ -78,7 +88,4 @@ public class ValuedObject {
     public void add() {incirc++;}
     public void remove() {incirc--;}
     public String getName() {return name;}
-    public void save() {
-        SpigotHook.getInstance().data.set(name, incirc);
-    }
 }
