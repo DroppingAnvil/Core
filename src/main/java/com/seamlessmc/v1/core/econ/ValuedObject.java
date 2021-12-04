@@ -17,6 +17,9 @@ public class ValuedObject {
     private int pInCirc;
     private ChangeTypes state;
     private double current;
+    //GUI
+    public String material = "NETHER_STAR";
+    public Boolean glow = true;
     public ValuedObject(String name, Double base, Double multiplier, Integer cap, Integer incirc) {
         this.name = name;
         this.base = base;
